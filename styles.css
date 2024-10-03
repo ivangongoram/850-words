@@ -69,14 +69,3 @@ h2 {
     font-size: 1.5em;
     margin-top: 20px;
 }
-
-table {
-    width: 30%;
-    border-collapse: collapse;
-    margin: 20px auto; /* Cambiar a auto para centrar la tabla */
-}
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-}

@@ -1,6 +1,7 @@
 let currentWordIndex = 0;
 let correctAnswerIndex = 0;
 let correctAnswer;
+let cout = 0;
 
 function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -11,7 +12,8 @@ function loadNewWord() {
     document.getElementById("word").textContent = currentWord.word;
     correctAnswer = currentWord.translate;
 
-    document.getElementById("category").textContent = currentWord.category + " - " + currentWord.subcategory;
+    document.getElementById("contador").textContent = "Counter: "+cout;
+    document.getElementById("category").textContent = "Category: "+currentWord.category + " - " + currentWord.subcategory;
 
     const options = shuffleArray([
         currentWord.translate,
@@ -32,10 +34,12 @@ function loadNewWord() {
 function checkAnswer(selectedIndex) {
     if (selectedIndex === correctAnswerIndex) {
         document.getElementById("result").textContent = "Correcto!";
+        cout++;
         setTimeout(loadNewWord, 500);
     } else {
         document.getElementById("result").textContent = "Incorrecto, inténtalo de nuevo.";
         document.getElementById("answer").textContent = correctAnswer;
+        cout = 0;
         setTimeout(loadNewWord, 2000);
     }
 }
